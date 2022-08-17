@@ -1,10 +1,14 @@
-const removeFromArray = function(numArr, target) {
+const removeFromArray = function(numArr, ...targets) {
     // Convert target values into array-like
-    // Loop through the target array
-    for (let i = 0; i < numArr.length; i++) {
-        // If both values are the same then remove from the list
-        if (numArr[i] === target) {
+    const targetArr = [...targets];
+    // Loop through the number array
+        // Loop through the target array to remove matched value
+    for (const target of targets) {
+        for (let i = 0; i < numArr.length; i++) {
+            // If both values are the same then remove from the list
+            if (numArr[i] === target) {
                 numArr.splice(i, 1);
+            }
         }
     }
     return numArr;
